@@ -4,6 +4,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 Use App\Http\Controllers\Spotify\SpotifyDashboardController;
+Use App\Http\Controllers\Spotify\SpotifyAuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,19 +18,16 @@ Use App\Http\Controllers\Spotify\SpotifyDashboardController;
 */
 
 Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-});
-
-Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->name('dashboard');
 
-Route::prefix('/spotify')->name('spotify.')->middleware(['auth'])->group(function() {
+Route::prefix('/spotify')->name('spotify.')->group(function() {
     Route::get('/', [SpotifyDashboardController::class, 'dashboard'])->name('dashboard');
+    Route::prefix('/auth')->name('auth.')->group(function() {
+        Route::get('/redirect', [SpotifyAuthController::class, 'redirect'])->name('redirect');
+        Route::get('/callback', [SpotifyAuthController::class, 'callback'])->name('callback');
+    });
+
 });
+
 require __DIR__.'/auth.php';

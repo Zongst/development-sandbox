@@ -1,6 +1,7 @@
 <script setup>
 import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
 import { Head } from '@inertiajs/inertia-vue3';
+import { Link } from '@inertiajs/inertia-vue3';
 </script>
 
 <template>
@@ -12,6 +13,8 @@ import { Head } from '@inertiajs/inertia-vue3';
                 Spotify Dashboard
             </h2>
         </template>
-
+        <Link :href="route('spotify.auth.redirect')" class="btn btn-blue">
+            Button
+        </Link>
     </BreezeAuthenticatedLayout>
 </template>
