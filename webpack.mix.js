@@ -21,7 +21,6 @@ mix.js('resources/js/app.js', 'public/js')
     .alias({
         '@': 'resources/js',
     });
-
 if (mix.inProduction()) {
     mix.version();
 }

@@ -26,6 +26,7 @@ Route::prefix('/spotify')->name('spotify.')->group(function() {
     Route::prefix('/auth')->name('auth.')->group(function() {
         Route::get('/redirect', [SpotifyAuthController::class, 'redirect'])->name('redirect');
         Route::get('/callback', [SpotifyAuthController::class, 'callback'])->name('callback');
+        Route::get('/revoke', [SpotifyAuthController::class, 'revoke'])->name('revoke');
     });
 
 });
