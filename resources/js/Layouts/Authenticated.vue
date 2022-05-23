@@ -28,7 +28,10 @@ const showingNavigationDropdown = ref(false);
                             <!-- Navigation Links -->
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                                 <BreezeNavLink :href="route('dashboard')" :active="route().current('dashboard')">
-                                    Dashboard
+                                    Home
+                                </BreezeNavLink>
+                                <BreezeNavLink :href="route('spotify.dashboard')" :active="route().current('spotify.dashboard')">
+                                    Spotify
                                 </BreezeNavLink>
                             </div>
                         </div>

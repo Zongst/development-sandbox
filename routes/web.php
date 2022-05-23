@@ -3,6 +3,7 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+Use App\Http\Controllers\Spotify\SpotifyDashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,4 +29,7 @@ Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::prefix('/spotify')->name('spotify.')->middleware(['auth'])->group(function() {
+    Route::get('/', [SpotifyDashboardController::class, 'dashboard'])->name('dashboard');
+});
 require __DIR__.'/auth.php';
