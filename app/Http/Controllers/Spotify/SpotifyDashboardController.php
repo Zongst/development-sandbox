@@ -60,7 +60,7 @@ class SpotifyDashboardController extends Controller
         return Inertia::render('Spotify/Dashboard',[
             'connected' => $connected,
             'userInfo' => $userInfo,
-            'playlists' => $playlists->items
+            'playlists' => $playlists
         ]);
 
     }

@@ -57,21 +57,22 @@ export default {
                             <div class="flow-root">
                                 <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">
 
-                                    <li v-for="playlist in playlists" class="py-3 sm:py-4">
+                                    <li v-for="playlist in playlists.items" class="py-3 sm:py-4">
                                         <div class="flex items-center space-x-4">
                                             <div class="flex-shrink-0">
                                                 <img class="w-12 h-12 rounded-full" :src="playlist.images[0]['url']" >
                                             </div>
                                             <div class="flex-1 min-w-0">
-                                                <Link :href="playlist.external_urls.spotify" class="text-sm font-large text-gray-900 hover:text-blue-600 truncate dark:text-white">
+                                                <a target='_blank'  :href="playlist.external_urls.spotify" class="text-sm font-large text-gray-900 hover:text-blue-600 truncate dark:text-white">
                                                     {{ playlist.name}}
-                                                </Link>
+                                                </a>
                                                 <p class="text-sm text-gray-500 truncate dark:text-gray-400">
                                                    Number of Tracks: {{ playlist.tracks.total}}
                                                 </p>
                                             </div>
                                             <div class="inline-flex items-center">
-                                                <a class="inline-flex items-center h-8 px-4 m-2 text-sm text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-lg focus:shadow-outline hover:bg-indigo-800" :href="route('spotify.auth.revoke')" > View</a>
+                                                <a class="inline-flex items-center h-8 px-4 m-2 text-sm text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-lg focus:shadow-outline hover:bg-indigo-800"
+                                                      target='_blank' :href="playlist.external_urls.spotify"  > View</a>
 
                                             </div>
                                         </div>

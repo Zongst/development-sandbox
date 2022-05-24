@@ -768,9 +768,6 @@ select {
 .w-12 {
   width: 3rem;
 }
-.w-16 {
-  width: 4rem;
-}
 .min-w-0 {
   min-width: 0px;
 }
@@ -785,9 +782,6 @@ select {
 }
 .max-w-md {
   max-width: 28rem;
-}
-.max-w-sm {
-  max-width: 24rem;
 }
 .flex-1 {
   flex: 1 1 0%;
