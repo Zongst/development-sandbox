@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Spotify;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Inertia\Inertia;
 use SpotifyWebAPI\Session;
 use SpotifyWebAPI\SpotifyWebAPI;
@@ -11,20 +12,10 @@ use SpotifyWebAPI\SpotifyWebAPIException;
 
 class SpotifyDashboardController extends Controller
 {
-    public Session $session;
-    public SpotifyWebAPI $api;
-    public function __construct()
-    {
-        $this->session = new Session(
-            config('services.spotify.client_id'),
-            config('services.spotify.client_secret'),
-            config('services.spotify.redirect_url'),
-        );
-        $this->api = $api = new SpotifyWebAPI();
 
-    }
     public function dashboard(Request $request): \Inertia\Response
     {
+        $offset = $request->input('offset') ?? 0;
         $connected = false;
         $errorCaught = false;
         $userInfo = null;
@@ -50,17 +41,21 @@ class SpotifyDashboardController extends Controller
                 }
             }
             if(!$errorCaught){
+
                 $playlists = $this->api->getUserPlaylists($userInfo->id, [
-                    'limit' => 5
+                    'limit' => 5,
+                    'offset' => $offset
                 ]);
                 $connected = true;
+
 
             }
         }
         return Inertia::render('Spotify/Dashboard',[
             'connected' => $connected,
             'userInfo' => $userInfo,
-            'playlists' => $playlists
+            'playlists' => $playlists,
+            'offset' => (int)$offset,
         ]);
 
     }

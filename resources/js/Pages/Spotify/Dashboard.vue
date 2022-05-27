@@ -2,7 +2,7 @@
 import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
 import { Head } from '@inertiajs/inertia-vue3';
 import { Link } from '@inertiajs/inertia-vue3';
-
+import { Inertia } from '@inertiajs/inertia'
 export default {
     components: {
         Head,
@@ -12,8 +12,29 @@ export default {
     props: {
         connected: Boolean,
         userInfo: Object,
-        playlists: Array,
+        playlists: Object,
+        offset: Number
     },
+    methods: {
+        fetchPlaylists(direction) {
+            let offset = this.offset;
+            if(direction === "next"){
+                if((offset + 10) < this.playlists.total){
+                    offset = offset + 10;
+                }
+            }else{
+                if((offset - 10 ) >= 0){
+                    offset = offset - 10;
+                }
+            }
+            var url = route('spotify.dashboard') + '?offset=' + offset;
+            Inertia.visit(url, {
+                only: ['playlists', 'offset'],
+            })
+        },
+
+    }
+
 }
 
 </script>
@@ -28,15 +49,15 @@ export default {
                 <div>
 
                 </div>
-                <div >
-                    <div class="mt-5" v-if="!connected">
+                <div class="flex justify-center" >
+                    <div class="mt-5 w-full" v-if="!connected">
                         <Link :href="route('spotify.auth.redirect')"  class="py-2 max-w-md px-4  bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
                             Connect With Spotify
                         </Link>
 
                     </div>
 
-                    <div class="mt-5" v-else>
+                    <div class="mt-5 w-full" v-else>
 
                         <div class="flex items-center space-x-4">
                             <img class="w-20 h-20 rounded-full" :src="userInfo.images[0]['url']" alt="">
@@ -44,27 +65,32 @@ export default {
                                 <div>Welcome  {{ userInfo.display_name }} </div>
                             </div>
                             <Link :href="route('spotify.auth.revoke')"  class=" flex py-2 max-w-md px-4  bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-md ">
-                                Revoke Spotify Access
+                                Sign-Out of Spotify
                             </Link>
                         </div>
-                        <div class=" mt-5 p-4 max-w-md bg-white rounded-lg border shadow-md sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+                        <div class=" mt-5 p-4 w-100 bg-white rounded-lg border shadow-md sm:p-8 dark:bg-gray-800 dark:border-gray-700">
                             <div class="flex justify-between items-center mb-4">
                                 <h5 class="text-xl font-bold leading-none text-gray-900 dark:text-white">Playlists</h5>
-                                <a href="#" class="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500">
-                                    View all
-                                </a>
+                                <button type="button" v-if="(offset - 10 ) >= 0"   @click="fetchPlaylists('previous')" class="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500">
+                                    Previous
+                                </button>
+                                <button type="button" v-if="(offset + 10) < playlists.total"  @click="fetchPlaylists('next')" class="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500">
+                                    Next
+                                </button>
                             </div>
                             <div class="flow-root">
-                                <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">
+                                <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700" :key="offset">
 
                                     <li v-for="playlist in playlists.items" class="py-3 sm:py-4">
                                         <div class="flex items-center space-x-4">
                                             <div class="flex-shrink-0">
-                                                <img class="w-12 h-12 rounded-full" :src="playlist.images[0]['url']" >
+                                                <img v-if="playlist.images.length > 0" class="w-12 h-12 rounded-full" :src="playlist.images[0]['url']" >
+                                                <img v-else class="w-12 h-12 rounded-full" >
                                             </div>
                                             <div class="flex-1 min-w-0">
                                                 <a target='_blank'  :href="playlist.external_urls.spotify" class="text-sm font-large text-gray-900 hover:text-blue-600 truncate dark:text-white">
-                                                    {{ playlist.name}}
+                                                    <span v-if="playlist.name.length<60">{{playlist.name}}</span>
+                                                    <span v-else>{{playlist.name.substring(0,60)+".." }}</span>
                                                 </a>
                                                 <p class="text-sm text-gray-500 truncate dark:text-gray-400">
                                                    Number of Tracks: {{ playlist.tracks.total}}

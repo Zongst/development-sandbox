@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 Use App\Http\Controllers\Spotify\SpotifyDashboardController;
 Use App\Http\Controllers\Spotify\SpotifyAuthController;
+Use \App\Http\Controllers\Spotify\SpotifyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +23,8 @@ Route::get('/', function () {
 })->name('dashboard');
 
 Route::prefix('/spotify')->name('spotify.')->group(function() {
-    Route::get('/', [SpotifyDashboardController::class, 'dashboard'])->name('dashboard');
+    Route::get('/{offset?}', [SpotifyDashboardController::class, 'dashboard'])->name('dashboard');
+    Route::get('/playlists/all', [SpotifyController::class, 'get_all'])->name('get_all');
     Route::prefix('/auth')->name('auth.')->group(function() {
         Route::get('/redirect', [SpotifyAuthController::class, 'redirect'])->name('redirect');
         Route::get('/callback', [SpotifyAuthController::class, 'callback'])->name('callback');

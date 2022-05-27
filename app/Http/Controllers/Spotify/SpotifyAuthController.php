@@ -11,18 +11,7 @@ use SpotifyWebAPI\SpotifyWebAPI;
 
 class SpotifyAuthController extends Controller
 {
-    public Session $session;
-    public SpotifyWebAPI $api;
-    public function __construct()
-    {
-        $this->session = new Session(
-            config('services.spotify.client_id'),
-            config('services.spotify.client_secret'),
-            config('services.spotify.redirect_url'),
-        );
-        $this->api = $api = new SpotifyWebAPI();
 
-    }
     public function redirect(Request $request)
     {
         $options = [
