@@ -9,7 +9,7 @@ use Inertia\Inertia;
 use SpotifyWebAPI\Session;
 use SpotifyWebAPI\SpotifyWebAPI;
 
-class SpotifyAuthController extends Controller
+class SpotifyAuthController extends SpotifyBaseController
 {
 
     public function redirect(Request $request)

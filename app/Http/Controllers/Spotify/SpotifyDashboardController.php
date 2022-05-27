@@ -10,7 +10,7 @@ use SpotifyWebAPI\Session;
 use SpotifyWebAPI\SpotifyWebAPI;
 use SpotifyWebAPI\SpotifyWebAPIException;
 
-class SpotifyDashboardController extends Controller
+class SpotifyDashboardController extends SpotifyBaseController
 {
 
     public function dashboard(Request $request): \Inertia\Response
