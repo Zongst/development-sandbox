@@ -61,25 +61,25 @@ export default {
 
                         <div class="flex items-center space-x-4">
                             <img class="w-20 h-20 rounded-full" :src="userInfo.images[0]['url']" alt="">
-                            <div class="space-y-1 font-medium dark:text-white">
+                            <div class="space-y-1 font-medium ">
                                 <div>Welcome  {{ userInfo.display_name }} </div>
                             </div>
                             <Link :href="route('spotify.auth.revoke')"  class=" flex py-2 max-w-md px-4  bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-md ">
                                 Sign-Out of Spotify
                             </Link>
                         </div>
-                        <div class=" mt-5 p-4 w-100 bg-white rounded-lg border shadow-md sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+                        <div class=" mt-5 p-4 w-100  rounded-lg border shadow-md sm:p-8">
                             <div class="flex justify-between items-center mb-4">
-                                <h5 class="text-xl font-bold leading-none text-gray-900 dark:text-white">Playlists</h5>
-                                <button type="button" v-if="(offset - 10 ) >= 0"   @click="fetchPlaylists('previous')" class="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500">
+                                <h5 class="text-xl font-bold leading-none text-gray-900 ">Playlists</h5>
+                                <button type="button" v-if="(offset - 10 ) >= 0"   @click="fetchPlaylists('previous')" class="text-sm font-medium text-blue-600 hover:underline ">
                                     Previous
                                 </button>
-                                <button type="button" v-if="(offset + 10) < playlists.total"  @click="fetchPlaylists('next')" class="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500">
+                                <button type="button" v-if="(offset + 10) < playlists.total"  @click="fetchPlaylists('next')" class="text-sm font-medium text-blue-600 hover:underline ">
                                     Next
                                 </button>
                             </div>
                             <div class="flow-root">
-                                <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700" :key="offset">
+                                <ul role="list" class="divide-y divide-gray-200 " :key="offset">
 
                                     <li v-for="playlist in playlists.items" class="py-3 sm:py-4">
                                         <div class="flex items-center space-x-4">
@@ -88,11 +88,11 @@ export default {
                                                 <img v-else class="w-12 h-12 rounded-full" >
                                             </div>
                                             <div class="flex-1 min-w-0">
-                                                <a target='_blank'  :href="playlist.external_urls.spotify" class="text-sm font-large text-gray-900 hover:text-blue-600 truncate dark:text-white">
+                                                <a target='_blank'  :href="playlist.external_urls.spotify" class="text-sm font-large text-gray-900 hover:text-blue-600 truncate ">
                                                     <span v-if="playlist.name.length<60">{{playlist.name}}</span>
                                                     <span v-else>{{playlist.name.substring(0,60)+".." }}</span>
                                                 </a>
-                                                <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                                                <p class="text-sm text-gray-500 truncate ">
                                                    Number of Tracks: {{ playlist.tracks.total}}
                                                 </p>
                                             </div>

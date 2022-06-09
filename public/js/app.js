@@ -24121,20 +24121,20 @@ var _hoisted_7 = {
 };
 var _hoisted_8 = ["src"];
 var _hoisted_9 = {
-  "class": "space-y-1 font-medium dark:text-white"
+  "class": "space-y-1 font-medium"
 };
 
 var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Sign-Out of Spotify ");
 
 var _hoisted_11 = {
-  "class": "mt-5 p-4 w-100 bg-white rounded-lg border shadow-md sm:p-8 dark:bg-gray-800 dark:border-gray-700"
+  "class": "mt-5 p-4 w-100 rounded-lg border shadow-md sm:p-8"
 };
 var _hoisted_12 = {
   "class": "flex justify-between items-center mb-4"
 };
 
 var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", {
-  "class": "text-xl font-bold leading-none text-gray-900 dark:text-white"
+  "class": "text-xl font-bold leading-none text-gray-900"
 }, "Playlists", -1
 /* HOISTED */
 );
@@ -24167,7 +24167,7 @@ var _hoisted_23 = {
   key: 1
 };
 var _hoisted_24 = {
-  "class": "text-sm text-gray-500 truncate dark:text-gray-400"
+  "class": "text-sm text-gray-500 truncate"
 };
 var _hoisted_25 = {
   "class": "inline-flex items-center"
@@ -24227,17 +24227,17 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         onClick: _cache[0] || (_cache[0] = function ($event) {
           return $options.fetchPlaylists('previous');
         }),
-        "class": "text-sm font-medium text-blue-600 hover:underline dark:text-blue-500"
+        "class": "text-sm font-medium text-blue-600 hover:underline"
       }, " Previous ")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $props.offset + 10 < $props.playlists.total ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("button", {
         key: 1,
         type: "button",
         onClick: _cache[1] || (_cache[1] = function ($event) {
           return $options.fetchPlaylists('next');
         }),
-        "class": "text-sm font-medium text-blue-600 hover:underline dark:text-blue-500"
+        "class": "text-sm font-medium text-blue-600 hover:underline"
       }, " Next ")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("ul", {
         role: "list",
-        "class": "divide-y divide-gray-200 dark:divide-gray-700",
+        "class": "divide-y divide-gray-200",
         key: $props.offset
       }, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.playlists.items, function (playlist) {
         return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("li", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [playlist.images.length > 0 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("img", {
@@ -24249,7 +24249,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         , _hoisted_18)) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("img", _hoisted_19))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
           target: "_blank",
           href: playlist.external_urls.spotify,
-          "class": "text-sm font-large text-gray-900 hover:text-blue-600 truncate dark:text-white"
+          "class": "text-sm font-large text-gray-900 hover:text-blue-600 truncate"
         }, [playlist.name.length < 60 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", _hoisted_22, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(playlist.name), 1
         /* TEXT */
         )) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", _hoisted_23, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(playlist.name.substring(0, 60) + ".."), 1
