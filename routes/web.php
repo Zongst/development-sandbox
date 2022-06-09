@@ -18,7 +18,11 @@ Use \App\Http\Controllers\Spotify\SpotifyController;
 |
 */
 
+
 Route::get('/', function () {
+    return Inertia::render('Hero');
+})->name('Hero');
+Route::get('/Dashboard', function () {
     return Inertia::render('Dashboard');
 })->name('dashboard');
 
