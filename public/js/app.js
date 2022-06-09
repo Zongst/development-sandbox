@@ -23989,7 +23989,7 @@ var _hoisted_3 = {
   "class": "inner"
 };
 var _hoisted_4 = {
-  "class": "max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700",
+  "class": "max-w-sm bg-white rounded-lg border border-gray-200 shadow-md",
   style: {
     "background-color": "#E9EAEC"
   }
@@ -24007,13 +24007,13 @@ var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 );
 
 var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", {
-  "class": "mb-1 text-3xl font-bold text-gray-900 dark:text-white"
+  "class": "mb-1 text-3xl font-bold text-gray-900"
 }, "Monty Hollings", -1
 /* HOISTED */
 );
 
 var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-  "class": "text-lg text-gray-500 dark:text-gray-400"
+  "class": "text-lg text-gray-500"
 }, "Software Developer", -1
 /* HOISTED */
 );
@@ -24023,7 +24023,7 @@ var _hoisted_9 = {
 };
 
 var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-  "class": "text-lg text-gray-900 dark:text-white"
+  "class": "text-lg text-gray-900"
 }, "Personal Projects:", -1
 /* HOISTED */
 );
