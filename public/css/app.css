@@ -1357,9 +1357,26 @@ html, body, #app{
     min-height: 20%;
     max-height: 50%;
 }
+.hamburger, .hamburger-white{
+    z-index: 999999;
+}
 .hamburger-white .bm-burger-bars{
     background-color: white !important;
-
+}
+.hamburger-white .bm-menu{
+    background-color: #92BFB1 !important;
+}
+.hamburger-white .bm-cross{
+    background-color: #3f3f41 !important;
+}
+.hamburger .bm-burger-bars{
+    background-color: #333652 !important;
+}
+.hamburger .bm-menu{
+    background-color: #333652 !important;
+}
+.hamburger .bm-cross{
+    background-color: #3f3f41 !important;
 }
 .hover\:border-gray-300:hover {
   --tw-border-opacity: 1;
@@ -1657,5 +1674,4 @@ html, body, #app{
     padding-right: 2rem;
   }
 }
-
 

@@ -44,14 +44,17 @@ export default {
 <template>
 
     <div class="hero-wrapper" style="background-color: #92BFB1 !important;">
-        <Slide style="z-index: 9999; background-color: white !important">
-            <Link :href="route('Hero')">
-                <span>Home</span>
-            </Link>
-            <Link :href="route('spotify.dashboard')">
-                <span>Spotify</span>
-            </Link>
-        </Slide>
+        <div class="hamburger">
+            <Slide >
+                <Link :href="route('Hero')">
+                    <span>Home</span>
+                </Link>
+                <Link :href="route('spotify.dashboard')">
+                    <span>Spotify</span>
+                </Link>
+            </Slide>
+        </div>
+
         <div class="main" style="width: 100% !important;">
             <div class="inner" style="width: 50rem !important;">
                 <div class="mt-5 w-full" v-if="!connected">
