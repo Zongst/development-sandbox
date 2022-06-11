@@ -11,7 +11,6 @@
     justify-content: center;
     min-height: 100vh;
     position: relative;
-    z-index: 2;
     overflow: hidden;
     padding: 2rem 2rem 2rem 2rem;
 
@@ -21,7 +20,6 @@
     max-width: 100%;
     position: relative;
     text-align: center;
-    z-index: 1;
     align-items: center;
     justify-content: center;
     flex-grow: 0;
@@ -67,4 +65,11 @@ html, body, #app{
     max-width: 50%;
     min-height: 20%;
     max-height: 50%;
+}
+.hamburger-white .bm-burger-bars{
+    background-color: white !important;
+
+}
+.hamburger-white{
+
 }

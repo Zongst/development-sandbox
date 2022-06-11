@@ -1,9 +1,11 @@
 
 <script>
 import { Link } from '@inertiajs/inertia-vue3';
+import { Slide } from 'vue3-burger-menu'
 export default {
     components: {
-        Link
+        Link,
+        Slide
     },
     props: [
     ],
@@ -25,6 +27,16 @@ export default {
 </script>
 <template>
    <div class="hero-wrapper">
+       <div class="hamburger-white">
+           <Slide style="z-index: 9999;">
+               <Link :href="route('Hero')">
+                   <span>Home</span>
+               </Link>
+               <Link :href="route('spotify.dashboard')">
+                   <span>Spotify</span>
+               </Link>
+           </Slide>
+       </div>
        <div class="main">
            <div class="inner">
                <div class="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md " style="background-color: #E9EAEC">

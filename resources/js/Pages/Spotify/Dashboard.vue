@@ -3,11 +3,13 @@ import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
 import { Head } from '@inertiajs/inertia-vue3';
 import { Link } from '@inertiajs/inertia-vue3';
 import { Inertia } from '@inertiajs/inertia'
+import { Slide } from 'vue3-burger-menu'
 export default {
     components: {
         Head,
         BreezeAuthenticatedLayout,
-        Link
+        Link,
+        Slide
     },
     props: {
         connected: Boolean,
@@ -41,7 +43,15 @@ export default {
 
 <template>
 
-    <div class="hero-wrapper">
+    <div class="hero-wrapper" style="background-color: #92BFB1 !important;">
+        <Slide style="z-index: 9999; background-color: white !important">
+            <Link :href="route('Hero')">
+                <span>Home</span>
+            </Link>
+            <Link :href="route('spotify.dashboard')">
+                <span>Spotify</span>
+            </Link>
+        </Slide>
         <div class="main" style="width: 100% !important;">
             <div class="inner" style="width: 50rem !important;">
                 <div class="mt-5 w-full" v-if="!connected">
@@ -63,9 +73,6 @@ export default {
                                     <div class="space-y-1 font-medium ">
                                         <div>Welcome  {{ userInfo.display_name }} </div>
                                     </div>
-                                    <Link :href="route('spotify.auth.revoke')"  class=" flex py-2 max-w-md px-4  bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-md ">
-                                        Sign-Out of Spotify
-                                    </Link>
                                 </div>
                                 <div class=" mt-5 p-4 w-100  rounded-lg border shadow-md sm:p-8">
                                     <div class="flex justify-between items-center mb-4">
@@ -117,8 +124,9 @@ export default {
             </div>
         </div>
     </div>
-
-
-
-
 </template>
+<style scoped>
+body {
+    background-color: white !important;
+}
+</style>

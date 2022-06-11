@@ -808,9 +808,6 @@ select {
 .max-w-md {
   max-width: 28rem;
 }
-.max-w-lg {
-  max-width: 32rem;
-}
 .flex-1 {
   flex: 1 1 0%;
 }
@@ -854,9 +851,6 @@ select {
 .grid-cols-1 {
   grid-template-columns: repeat(1, minmax(0, 1fr));
 }
-.grid-cols-3 {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
 .flex-col {
   flex-direction: column;
 }
@@ -874,9 +868,6 @@ select {
 }
 .justify-items-center {
   justify-items: center;
-}
-.gap-4 {
-  gap: 1rem;
 }
 .space-x-8 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
@@ -1312,7 +1303,6 @@ select {
     justify-content: center;
     min-height: 100vh;
     position: relative;
-    z-index: 2;
     overflow: hidden;
     padding: 2rem 2rem 2rem 2rem;
 
@@ -1322,7 +1312,6 @@ select {
     max-width: 100%;
     position: relative;
     text-align: center;
-    z-index: 1;
     align-items: center;
     justify-content: center;
     flex-grow: 0;
@@ -1367,6 +1356,13 @@ html, body, #app{
     max-width: 50%;
     min-height: 20%;
     max-height: 50%;
+}
+.hamburger-white .bm-burger-bars{
+    background-color: white !important;
+
+}
+.hamburger-white{
+
 }
 .hover\:border-gray-300:hover {
   --tw-border-opacity: 1;
@@ -1520,11 +1516,6 @@ html, body, #app{
 }
 @media (prefers-color-scheme: dark) {
 
-  .dark\:divide-gray-700 > :not([hidden]) ~ :not([hidden]) {
-    --tw-divide-opacity: 1;
-    border-color: rgb(55 65 81 / var(--tw-divide-opacity));
-  }
-
   .dark\:border-gray-700 {
     --tw-border-opacity: 1;
     border-color: rgb(55 65 81 / var(--tw-border-opacity));
@@ -1553,11 +1544,6 @@ html, body, #app{
   .dark\:text-gray-400 {
     --tw-text-opacity: 1;
     color: rgb(156 163 175 / var(--tw-text-opacity));
-  }
-
-  .dark\:text-blue-500 {
-    --tw-text-opacity: 1;
-    color: rgb(59 130 246 / var(--tw-text-opacity));
   }
 }
 @media (min-width: 640px) {
