@@ -87,3 +87,8 @@ html, body, #app{
 .hamburger .bm-cross{
     background-color: #3f3f41 !important;
 }
+.spotify-profile-image {
+    object-fit: cover;
+    width:7.5rem;
+    height:7.5rem;
+}

@@ -754,8 +754,8 @@ select {
 .h-10 {
   height: 2.5rem;
 }
-.h-12 {
-  height: 3rem;
+.h-auto {
+  height: auto;
 }
 .min-h-screen {
   min-height: 100vh;
@@ -1377,6 +1377,12 @@ html, body, #app{
 }
 .hamburger .bm-cross{
     background-color: #3f3f41 !important;
+}
+.spotify-profile-image {
+    -o-object-fit: cover;
+       object-fit: cover;
+    width:7.5rem;
+    height:7.5rem;
 }
 .hover\:border-gray-300:hover {
   --tw-border-opacity: 1;
